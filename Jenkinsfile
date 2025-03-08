@@ -4,7 +4,7 @@ pipeline {
     environment {
                 ANGULAR_IMAGE = "dinesh14coder/rmkv:angular${BUILD_NUMBER}"
                 REGISTRY_CREDENTIALS = credentials("dock-cred")
-                REPLACE="rmkv:angular${BUILD_NUMBER}"
+                REPLACE="angular${BUILD_NUMBER}"
                 CHANGE="dotnet${BUILD_NUMBER}"
                 DOTNET_IMAGE = "dinesh14coder/rmkv:dotnet${BUILD_NUMBER}"
     }
@@ -42,7 +42,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'sed -i -E "s/rmkv:.*/${REPLACE}/g" docker-compose.yaml'
+                sh 'sed -i -E "s/angular.*/${REPLACE}/g" docker-compose.yaml'
                 sh 'sed -i -E "s/dotnet.*/${CHANGE}/g" docker-compose.yaml'
                 sh "ls -ltr"
                 sh 'docker-compose -f docker-compose.yaml up -d'
