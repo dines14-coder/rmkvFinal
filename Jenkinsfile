@@ -5,6 +5,8 @@ pipeline {
                 ANGULAR_IMAGE = "dinesh14coder/rmkv:angular${BUILD_NUMBER}"
                 REGISTRY_CREDENTIALS = credentials("dock-cred")
                 REPLACE="rmkv:angular${BUILD_NUMBER}"
+                CHANGE="dotnet${BUILD_NUMBER}"
+                DOTNET_IMAGE = "dinesh14coder/rmkv:dotnet${BUILD_NUMBER}"
     }
 
     stages {
@@ -14,7 +16,7 @@ pipeline {
                 sh "ls -ltr"
             }
         }
-        stage('Build Image and Push') {
+        stage('Build Image and Push angular application') {
             steps {
                 script {
                         sh 'docker --version'
@@ -27,9 +29,21 @@ pipeline {
                 }
             }
         }
+        stage('Build Image and Push dotnet application') {
+            steps {
+                script {
+                        sh 'cd SprintTrack-API-new && docker build -t ${DOTNET_IMAGE} .' 
+                        def dockerImage = docker.image("${DOTNET_IMAGE}")
+                        withDockerRegistry([credentialsId: 'dock-cred', url: 'https://index.docker.io/v1/']) { 
+                            dockerImage.push()
+                        }
+                }
+            }
+        }
         stage('Deploy') {
             steps {
                 sh 'sed -i -E "s/rmkv:.*/${REPLACE}/g" docker-compose.yaml'
+                sh 'sed -i -E "s/dotnet.*/${CHANGE}/g" docker-compose.yaml'
                 sh "ls -ltr"
                 sh 'docker-compose -f docker-compose.yaml up -d'
             }
