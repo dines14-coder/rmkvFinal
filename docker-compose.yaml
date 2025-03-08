@@ -1,7 +1,7 @@
 services:
   rmkv-app:
     image: dinesh14coder/rmkv:
-    container_name: sprint-track-ui
+    container_name: sprint-track-ui-app
     ports:
       - "91:80"
     restart: always
