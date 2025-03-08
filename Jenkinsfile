@@ -36,7 +36,7 @@ pipeline {
         }
         stage('Update Deployment File') {
             environment {
-                GIT_REPO_NAME = "rmkvlocal"
+                GIT_REPO_NAME = "rmkvFinal"
                 GIT_USER_NAME = "dines14-coder"
             }
             steps {
