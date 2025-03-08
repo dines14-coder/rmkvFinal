@@ -1,6 +1,6 @@
 services:
   rmkv-app:
-    image: dinesh14coder/rmkv:
+    image: dinesh14coder/rmkv:angular10
     container_name: sprint-track-ui-app
     ports:
       - "91:80"
