@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url:'https://github.com/siva12819/rmkvFinal.git'
+                git branch: 'main', url:'https://github.com/dines14-coder/rmkvFinal.git'
                 sh "ls -ltr"
             }
         }
