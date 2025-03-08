@@ -44,7 +44,6 @@ pipeline {
                     sh '''
                         git config user.email "dvrdineshdvrdinesh728@gmail.com"
                         git config user.name "dines14-coder"
-                        git pull origin main
                         git add docker-compose.yaml
                         git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                         git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
