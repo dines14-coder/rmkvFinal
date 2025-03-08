@@ -6,7 +6,7 @@ services:
       - "91:80"
     restart: always
   sprint-track-api:
-    image: dinesh14coder/rmkv:angular15
+    image: dinesh14coder/rmkv:dotnet
     container_name: sprint-track-api
     ports:
       - "5006:8080"
