@@ -8,6 +8,8 @@ COPY . .
 
 COPY ngnix.c* ./
 
+RUN ls -ltr /app
+
 RUN rm -rf dist*
 
 RUN rm -rf node_mod*
