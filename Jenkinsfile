@@ -45,6 +45,7 @@ pipeline {
                 sh 'sed -i -E "s/angular.*/${REPLACE}/g" docker-compose.yaml'
                 sh 'sed -i -E "s/dotnet.*/${CHANGE}/g" docker-compose.yaml'
                 sh "ls -ltr"
+                sh 'docker-compose down || true'
                 sh 'docker-compose -f docker-compose.yaml up -d'
             }
         }
