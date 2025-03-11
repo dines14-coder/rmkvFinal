@@ -6,6 +6,8 @@ COPY package* ./
 
 COPY . .
 
+COPY ngnix.c* ./
+
 RUN rm -rf dist*
 
 RUN rm -rf node_mod*
