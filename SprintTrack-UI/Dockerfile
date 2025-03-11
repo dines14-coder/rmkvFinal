@@ -6,7 +6,7 @@ COPY package* ./
 
 COPY . .
 
-COPY ngnix.c* ./
+COPY nginx.c* ./
 
 RUN ls -ltr /app
 
