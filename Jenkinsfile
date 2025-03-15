@@ -52,10 +52,6 @@ pipeline {
             }
         }
         stage('Update Deployment File') {
-            environment {
-                GIT_REPO_NAME = "rmkvFinal"
-                GIT_USER_NAME = "dines14-coder"
-            }
             steps {
                 withCredentials([string(credentialsId: 'sprint', variable: 'GITHUB_TOKEN')]) {
                     sh '''
