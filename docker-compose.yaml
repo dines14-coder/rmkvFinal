@@ -1,12 +1,12 @@
 services:
   rmkv-app:
-    image: dinesh14coder/rmkv:angular12
+    image: dinesh14coder/rmkv:angular1
     container_name: sprint-track-ui-app
     ports:
       - "91:80"
     restart: always
   sprint-track-api:
-    image: dinesh14coder/rmkv:dotnet12
+    image: dinesh14coder/rmkv:dotnet1
     container_name: sprint-track-api
     ports:
       - "5006:8080"
