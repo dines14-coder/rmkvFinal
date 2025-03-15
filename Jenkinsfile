@@ -7,6 +7,8 @@ pipeline {
                 REPLACE="angular${BUILD_NUMBER}"
                 CHANGE="dotnet${BUILD_NUMBER}"
                 DOTNET_IMAGE = "dinesh14coder/rmkv:dotnet${BUILD_NUMBER}"
+                GIT_REPO_NAME = "rmkvFinal"
+                GIT_USER_NAME = "dines14-coder"
     }
 
     stages {
