@@ -3,7 +3,7 @@ pipeline {
     
     environment {
                 ANGULAR_IMAGE = "dinesh14coder/rmkv:angular${BUILD_NUMBER}"
-                REGISTRY_CREDENTIALS = credentials("dock-cred")
+                REGISTRY_CREDENTIALS = credentials("cred-dock")
                 REPLACE="angular${BUILD_NUMBER}"
                 CHANGE="dotnet${BUILD_NUMBER}"
                 DOTNET_IMAGE = "dinesh14coder/rmkv:dotnet${BUILD_NUMBER}"
@@ -25,7 +25,7 @@ pipeline {
                         sh 'whoami'
                         sh 'cd SprintTrack-UI && docker build -t ${ANGULAR_IMAGE} .' 
                         def dockerImage = docker.image("${ANGULAR_IMAGE}")
-                        withDockerRegistry([credentialsId: 'cred-cred', url: 'https://index.docker.io/v1/']) { 
+                        withDockerRegistry([credentialsId: 'cred-dock', url: 'https://index.docker.io/v1/']) { 
                             dockerImage.push()
                         }
                 }
