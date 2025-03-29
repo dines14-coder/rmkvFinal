@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: sprint-deployment
   labels:
-    app: sprint-track-app
+    app: sprintapp
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: sprint-track-app
+      app: sprintapp
   template:
     metadata:
       labels:
-        app: sprint-track-app
+        app: sprintapp
     spec:
       containers:
-      - name: Sprint-track
+      - name: rmkv-track
         image: dinesh14coder/rmkv:angular4
         ports:
         - containerPort: 80
