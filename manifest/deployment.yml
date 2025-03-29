@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: rmkv-track
-        image: dinesh14coder/rmkv:angular4
+        image: dinesh14coder/rmkv:angular2
         ports:
         - containerPort: 80
       imagePullSecrets:
