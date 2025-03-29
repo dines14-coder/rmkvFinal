@@ -7,6 +7,6 @@ spec:
   selector:
     app: trackapp
   ports:
-    - port: 5006
-      targetPort: 5006
+    - port: 80
+      targetPort: 8080
       
