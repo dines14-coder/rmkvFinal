@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: track-deployment
+  labels:
+    app: trackapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: trackapp
+  template:
+    metadata:
+      labels:
+        app: trackapp
+    spec:
+      containers:
+      - name: rmkv-track
+        image: dinesh14coder/rmkv:dotnet4
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: dockerhub-cred
