@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: rmkv-track
-        image: dinesh14coder/rmkv:dotnet2
+        image: dinesh14coder/rmkv:dotnet3
         ports:
         - containerPort: 80
       imagePullSecrets:
