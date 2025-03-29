@@ -25,7 +25,7 @@ pipeline {
                         sh 'whoami'
                         sh 'cd SprintTrack-UI && docker build -t ${ANGULAR_IMAGE} .' 
                         def dockerImage = docker.image("${ANGULAR_IMAGE}")
-                        withDockerRegistry([credentialsId: 'dock-cred', url: 'https://index.docker.io/v1/']) { 
+                        withDockerRegistry([credentialsId: 'cred-cred', url: 'https://index.docker.io/v1/']) { 
                             dockerImage.push()
                         }
                 }
@@ -36,7 +36,7 @@ pipeline {
                 script {
                         sh 'cd SprintTrack-API-new && docker build -t ${DOTNET_IMAGE} .' 
                         def dockerImage = docker.image("${DOTNET_IMAGE}")
-                        withDockerRegistry([credentialsId: 'dock-cred', url: 'https://index.docker.io/v1/']) { 
+                        withDockerRegistry([credentialsId: 'cred-dock', url: 'https://index.docker.io/v1/']) { 
                             dockerImage.push()
                         }
                 }
