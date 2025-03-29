@@ -45,6 +45,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'sed -i -E "s/angular.*/${REPLACE}/g" manifest/deployment.yml'
+                sh 'sed -i -E "s/dotnet.*/${CHANGE}/g" manifest/dotnet-deployment.yml'
                 // sh 'sed -i -E "s/angular.*/${REPLACE}/g" docker-compose.yaml'
                 // sh 'sed -i -E "s/dotnet.*/${CHANGE}/g" docker-compose.yaml'
                 sh "ls -ltr"
