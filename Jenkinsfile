@@ -44,11 +44,12 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'sed -i -E "s/angular.*/${REPLACE}/g" docker-compose.yaml'
-                sh 'sed -i -E "s/dotnet.*/${CHANGE}/g" docker-compose.yaml'
+                sh 'sed -i -E "s/angular.*/${REPLACE}/g" manifest/deployment.yml'
+                // sh 'sed -i -E "s/angular.*/${REPLACE}/g" docker-compose.yaml'
+                // sh 'sed -i -E "s/dotnet.*/${CHANGE}/g" docker-compose.yaml'
                 sh "ls -ltr"
-                sh 'docker-compose down || true'
-                sh 'docker-compose -f docker-compose.yaml up -d'
+                // sh 'docker-compose down || true'
+                // sh 'docker-compose -f docker-compose.yaml up -d'
             }
         }
         stage('Update Deployment File') {
@@ -57,7 +58,7 @@ pipeline {
                     sh '''
                         git config user.email "dvrdineshdvrdinesh728@gmail.com"
                         git config user.name "dines14-coder"
-                        git add docker-compose.yaml
+                        git add manifest/deployment.yml
                         git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                         git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                     '''
