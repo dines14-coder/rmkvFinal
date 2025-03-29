@@ -3,5 +3,5 @@ import packageInfo from '../../package.json';
 export const environment = {
   appVersion: packageInfo.version,
   production: true,
-  apiUrl: 'http://track-service:30008/api/'
+  apiUrl: 'http://localhost:5006/api/'
 };
