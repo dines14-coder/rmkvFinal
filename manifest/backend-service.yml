@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: track-service
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: trackapp
   ports:
